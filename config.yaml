@@ -1,0 +1,51 @@
+settings:
+  title: 'Killzone Gaming Status'
+  url: 'https://status-page.eidam.dev' # used for Slack messages
+  logo: logo-192x192.png # image in ./public/ folder
+  daysInHistogram: 90 # number of days you want to display in histogram
+  collectResponseTimes: true # collects avg response times from CRON locations
+
+  allmonitorsOperational: 'All Systems Operational'
+  notAllmonitorsOperational: 'Not All Systems Operational'
+  monitorLabelOperational: 'Operational'
+  monitorLabelNotOperational: 'Not Operational'
+  monitorLabelNoData: 'No data'
+  dayInHistogramNoData: 'No data'
+  dayInHistogramOperational: 'All good'
+  dayInHistogramNotOperational: ' incident(s)' # xx incident(s) recorded
+
+monitors:
+  - id: www-kzg-gg # unique identifier
+    name: kzg.gg | Killzone Gaming Forums
+    description: '' # default=empty
+    url: 'https://kzg.gg' # URL to fetch
+    method: GET # default=GET
+    expectStatus: 200 # operational status, default=200
+    followRedirect: false # should fetch follow redirects, default=false
+    linkable: false # allows the title to be a link, default=true
+
+  - id: www-bans-kzg-gg
+    name: bans.kzg.gg | Killzone Gaming SourceBans
+    description: 'Built for anything connected to the Internet.'
+    url: 'https://stats.kzg.gg'
+    method: GET
+    expectStatus: 200
+    linkable: true # allows the title to be a link, default=true
+
+  - id: stats-kzg-gg
+    name: stats.kzg.gg | Killzone Gaming Statistics
+    url: 'https://stats.kzg.gg'
+    method: GET
+    expectStatus: 200
+
+  - id: steamid-kzg-gg
+    name: steamid.kzg.gg | Killzone Gaming SteamID
+    url: 'https://steamid.kzg.gg'
+    method: GET
+    expectStatus: 200
+
+  - id: shorturl-kzg-gg
+    name: kzg.link | Killzone Gaming URL Shortner
+    url: 'https://kzg.link'
+    method: GET
+    expectStatus: 200
